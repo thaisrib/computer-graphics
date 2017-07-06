@@ -81,39 +81,42 @@ def desenhaLabirinto():
     altura = 1
     alt = 0.01
     esp = 26
-    paredeH(-17, 20.0, -5, espessura, altura) #parede1
-    paredeV(-5, 21, -20, espessura, altura) #parede2
-    paredeV(-5, 21, 20, espessura, altura) #parede3
-    paredeH(-20, 17, 21, espessura, altura) #parede4
-    paredeH(-20, -16, 13, espessura, altura) #parede5
-    paredeH(20, 15, 7, espessura, altura) #parede6
-    paredeH(20, 12, 18, espessura, altura) #parede7
-    paredeV(18, 21, -2, espessura, altura) #parede8
-    paredeV(-5, 0,5, espessura, altura) #parede9
-    paredeV(-5, 7,-6, espessura, altura) #parede10
-    paredeH(-2, -16,7, espessura, altura) #parede11
-    paredeV(7, 12, -12, espessura, altura) #parede12
-    paredeV(1, 7,-16, espessura, altura) #parede13
-    paredeH(-16, -11,1, espessura, altura) #parede14
-    paredeV(7, 12,-2, espessura, altura) #parede15
-    paredeH(-2, -6,12, espessura, altura) #parede16
-    paredeV(12, 17,-6, espessura, altura) #parede17
-    paredeH(-14, -6,17, espessura, altura) #parede18
-    paredeV(17, 21, 4, espessura, altura) #parede19
-    paredeH(1, 8, 17, espessura, altura) #parede20
-    paredeV(13, 17, 8, espessura, altura) #parede21
-    paredeH(5, 12, 13, espessura, altura) #parede22
-    paredeV(3, 13, 12, espessura, altura) #parede23
-    paredeV(8, 13, 5, espessura, altura) #parede24
-    paredeH(1, 5, 8, espessura, altura) #parede25
-    paredeV(8, 1, 1, espessura, altura) #parede26
-    paredeH(-3, 1, 1, espessura, altura) #parede27
-    paredeH(9, 15, 3, espessura, altura) #parede28
-    paredeV(3, 9, 9, espessura, altura) #parede29
-    paredeV(7, 13, 15, espessura, altura) #parede30
-    paredeV(17, 12, 1, espessura, altura) #parede31
+    w1 = paredeH(-17, 20.0, -5, espessura, altura) #parede1
+    w2 = paredeV(-5, 21, -20, espessura, altura) #parede2
+    w3 =paredeV(-5, 21, 20, espessura, altura) #parede3
+    w4 =paredeH(-20, 17, 21, espessura, altura) #parede4
+    w5 =paredeH(-20, -16, 13, espessura, altura) #parede5
+    w6 =paredeH(20, 15, 7, espessura, altura) #parede6
+    w7 =paredeH(20, 12, 18, espessura, altura) #parede7
+    w8 =paredeV(18, 21, -2, espessura, altura) #parede8
+    w9 =paredeV(-5, 0,5, espessura, altura) #parede9
+    w10 =paredeV(-5, 7,-6, espessura, altura) #parede10
+    w11 =paredeH(-2, -16,7, espessura, altura) #parede11
+    w12 =paredeV(7, 12, -12, espessura, altura) #parede12
+    w13 =paredeV(1, 7,-16, espessura, altura) #parede13
+    w14 =paredeH(-16, -11,1, espessura, altura) #parede14
+    w15 =paredeV(7, 12,-2, espessura, altura) #parede15
+    w16 =paredeH(-2, -6,12, espessura, altura) #parede16
+    w17 =paredeV(12, 17,-6, espessura, altura) #parede17
+    w18 =paredeH(-14, -6,17, espessura, altura) #parede18
+    w19 =paredeV(17, 21, 4, espessura, altura) #parede19
+    w20 =paredeH(1, 8, 17, espessura, altura) #parede20
+    w21 =paredeV(13, 17, 8, espessura, altura) #parede21
+    w22 =paredeH(5, 12, 13, espessura, altura) #parede22
+    w23 =paredeV(3, 13, 12, espessura, altura) #parede23
+    w24 =paredeV(8, 13, 5, espessura, altura) #parede24
+    w25 =paredeH(1, 5, 8, espessura, altura) #parede25
+    w26 =paredeV(8, 1, 1, espessura, altura) #parede26
+    w27 =paredeH(-3, 1, 1, espessura, altura) #parede27
+    w28 =paredeH(9, 15, 3, espessura, altura) #parede28
+    w29 =paredeV(3, 9, 9, espessura, altura) #parede29
+    w30 =paredeV(7, 13, 15, espessura, altura) #parede30
+    w31 =paredeV(17, 12, 1, espessura, altura) #parede31
 
     chao(-20, 20, 8, esp, alt) #chao   
+
+    array = [w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14, w15, w16, w17, w18, w19, w20, w21, w22, w23, w24, w25, w26, w27, w28, w29, w30, w31]
+    global array
 
 def draw():
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
@@ -152,19 +155,19 @@ def timer(i):
 
 
 def teclaPressionada(tecla, xm, ym):
-    global x, z
-    if tecla == GLUT_KEY_LEFT:
-        print "ESQUERDA"
-        x -= 1
-    elif tecla == GLUT_KEY_RIGHT:
-        print "DIREITA"
-        x += 1
-    elif tecla == GLUT_KEY_UP:
-        print "CIMA"
-        z -= 1
-    elif tecla == GLUT_KEY_DOWN:
-        print "BAIXO"
-        z += 1
+        global x, z
+        if tecla == GLUT_KEY_LEFT:
+            print "ESQUERDA"
+	    x -= 1
+        elif tecla == GLUT_KEY_RIGHT:
+	    print "DIREITA"
+	    x += 1
+	elif tecla == GLUT_KEY_UP:
+	    print "CIMA"
+	    z -= 1
+	elif tecla == GLUT_KEY_DOWN:
+	    print "BAIXO"
+	    z += 1
 
 # PROGRAMA PRINCIPAL
 glutInit(sys.argv)
